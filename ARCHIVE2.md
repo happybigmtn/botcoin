@@ -138,3 +138,5 @@ BOOST_AUTO_TEST_CASE(block_reward_schedule)
 
 - [x] Change data directory from `.bitcoin` to `.botcoin` in `src/common/args.cpp:763`
 
+- [x] Change macOS path from "Bitcoin" to "Botcoin" in `src/common/args.cpp:760`
+
