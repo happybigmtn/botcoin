@@ -550,7 +550,7 @@ ls build/src/botcoin-cli && echo "PASS: botcoin-cli exists"
 
 ### 4.2 User Agent and Client Name ✅
 - [x] Change `UA_NAME` from "Satoshi" to "Botcoin" in `src/clientversion.cpp:24` (SIGNED OFF 2026-01-31)
-- [x] Change `CLIENT_NAME` from "Bitcoin Core" to "Botcoin Core" in `CMakeLists.txt:29`
+- [x] Change `CLIENT_NAME` from "Bitcoin Core" to "Botcoin Core" in `CMakeLists.txt:29` (SIGNED OFF 2026-01-31)
 - [x] Update project name from "BitcoinCore" to "BotcoinCore" in `CMakeLists.txt:53`
 
 **Required Tests:**
