@@ -134,3 +134,5 @@ BOOST_AUTO_TEST_CASE(block_reward_schedule)
 
 - [x] Update project name from "BitcoinCore" to "BotcoinCore" in `CMakeLists.txt:53`
 
+- [x] Change `BITCOIN_CONF_FILENAME` to "botcoin.conf" in `src/common/args.cpp:37`
+
