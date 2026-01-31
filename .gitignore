@@ -34,3 +34,11 @@ logs/
 
 # Build artifacts
 build/
+
+# Implementation docs
+AGENTS.md
+ARCHIVE*.md
+*REVIEW*.md
+IMPLEMENTATION*.md
+PROMPT*.md
+RALPH*.md
