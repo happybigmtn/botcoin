@@ -40,8 +40,8 @@ add_library(botcoin_util STATIC EXCLUDE_FROM_ALL
 target_link_libraries(botcoin_util
   PRIVATE
     core_interface
-    bitcoin_clientversion
-    bitcoin_crypto
+    botcoin_clientversion
+    botcoin_crypto
     $<$<PLATFORM_ID:Windows>:ws2_32>
     $<$<PLATFORM_ID:Windows>:iphlpapi>
     $<$<PLATFORM_ID:Windows>:bcrypt>
