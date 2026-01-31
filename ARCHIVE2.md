@@ -130,3 +130,5 @@ BOOST_AUTO_TEST_CASE(block_reward_schedule)
 
 - [x] Change `UA_NAME` from "Satoshi" to "Botcoin" in `src/clientversion.cpp:24`
 
+- [x] Change `CLIENT_NAME` from "Bitcoin Core" to "Botcoin Core" in `CMakeLists.txt:29`
+
