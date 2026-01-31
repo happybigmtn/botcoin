@@ -1,1 +1,5 @@
-Docs: Use new Bitcoin.org download URLs
+test: add functional test for deprecatedrpc=fees
+
+Test for old fields when `-deprecatedrpc=fees`
+flag is passed and verify values in the deprecated
+fields match values in the fees sub-object.

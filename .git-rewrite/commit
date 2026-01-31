@@ -1,27 +1,26 @@
-tree 0d7d145efb3df126bc9efb408c81cd0f09430b37
-parent cbb2cf5522983e4a952cfb25e577b1998a06c769
-author Gavin Andresen <gavinandresen@gmail.com> 1427303589 -0400
-committer Gavin Andresen <gavinandresen@gmail.com> 1427385499 -0400
+tree e3c4dcda509da701bd70280a49e0d4965eab9c0d
+parent 35d928c63237e31c99215e2d9d84782befd618d5
+author josibake <josibake@protonmail.com> 1628775508 +0200
+committer josibake <josibake@protonmail.com> 1635843938 +0100
 gpgsig -----BEGIN PGP SIGNATURE-----
- Version: GnuPG v1
  
- iEYEABECAAYFAlUULKAACgkQdYgkL74406iiNwCg0Pp8zOipaoLi2SY4c2xt5f1E
- xAwAoI4N/cOO98Q71Mc74dE5gMMhLmbL
- =Vqwz
+ iQIzBAABCgAdFiEEYWUWuOtu0CiC/Ep6ity1WMTzPWUFAmGA/2oACgkQity1WMTz
+ PWWQIw/+P95wlm5fsv1NEx/mcK8vp4g58Be7k5AVoZm+e/4L/xrMwzfUb8GFgu3O
+ nOttECv3zrzHkufIOE+xeRQ50avjnzrRA85iQHFl3GToXtayrT76uoC8bEm2Ntpj
+ FuRLNq7iZEa3yhHUx+P/L1Wx7C//17WYy5n3P3vEqtMtwmppF5LyQu41mfzc9q4Z
+ 1472PhU0U5sbwdG3Bw97G0DVyKpT5K78PaIdmxCWa+wJ//uL2/KzE6WnPosIFjo/
+ qmN0cLaurvW/zkBL32k71HsQfyDmTl+ixe01MquxWuiEnBNE+icHg5V/9pppdvlG
+ uX7e5JmFwfz5Oe8Ov0egoJxYmiy0ylOp2DXgsoJNlN5GzO+UGZXLdNQ9rz5NtrdT
+ Wm6OTiwvXwqRUthGNCUfmB1t5PhAKQ1+XH8z1SiQU9e2ARrx9B/OZl3rtjVeED3K
+ 8ZPoKGciWkqDX5SlG7GXqPhqqAaKYxkWzt7e2llTP9HgvIqWeD9vgWjmodfah354
+ AhTRfH5Qwf4vjWZn7kJy8clmwqnvZJoB/5YmpJU25uJpJHFvedyMNXUZHCBsmNry
+ NREWrVTWgHN+/qpoZX+jHjnR9X2V9ZRJJOEjQ096NS0MfvQ2iPnWiR2b7VHBgoQu
+ DSYp3LB87MfvItEnj/pIWM1S+erQMbKyF3SF0xT+1yLPkkrz2VM=
+ =1zrP
  -----END PGP SIGNATURE-----
 
-Keep mempool consistent during block-reorgs
+test: add functional test for deprecatedrpc=fees
 
-This fixes a subtle bug involving block re-orgs and non-standard transactions.
-
-Start with a block containing a non-standard transaction, and
-one or more transactions spending it in the memory pool.
-
-Then re-org away from that block to another chain that does
-not contain the non-standard transaction.
-
-Result before this fix: the dependent transactions get stuck
-in the mempool without their parent, putting the mempool
-in an inconsistent state.
-
-Tested with a new unit test.
+Test for old fields when `-deprecatedrpc=fees`
+flag is passed and verify values in the deprecated
+fields match values in the fees sub-object.

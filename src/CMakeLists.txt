@@ -45,14 +45,14 @@ add_custom_target(generate_build_info
   COMMENT "Generating botcoin-build-info.h"
   VERBATIM
 )
-add_library(bitcoin_clientversion STATIC
+add_library(botcoin_clientversion STATIC
   clientversion.cpp
 )
-target_link_libraries(bitcoin_clientversion
+target_link_libraries(botcoin_clientversion
   PRIVATE
     core_interface
 )
-add_dependencies(bitcoin_clientversion generate_build_info)
+add_dependencies(botcoin_clientversion generate_build_info)
 
 add_subdirectory(crypto)
 add_subdirectory(util)
@@ -60,7 +60,7 @@ if(ENABLE_IPC)
   add_subdirectory(ipc)
 endif()
 
-add_library(bitcoin_consensus STATIC EXCLUDE_FROM_ALL
+add_library(botcoin_consensus STATIC EXCLUDE_FROM_ALL
   arith_uint256.cpp
   consensus/merkle.cpp
   consensus/tx_check.cpp
@@ -73,10 +73,10 @@ add_library(bitcoin_consensus STATIC EXCLUDE_FROM_ALL
   script/script_error.cpp
   uint256.cpp
 )
-target_link_libraries(bitcoin_consensus
+target_link_libraries(botcoin_consensus
   PRIVATE
     core_interface
-    bitcoin_crypto
+    botcoin_crypto
     secp256k1
 )
 
@@ -85,8 +85,8 @@ if(WITH_ZMQ)
 endif()
 
 # Home for common functionality shared by different executables and libraries.
-# Similar to `bitcoin_util` library, but higher-level.
-add_library(bitcoin_common STATIC EXCLUDE_FROM_ALL
+# Similar to `botcoin_util` library, but higher-level.
+add_library(botcoin_common STATIC EXCLUDE_FROM_ALL
   addresstype.cpp
   base58.cpp
   bech32.cpp
@@ -138,11 +138,11 @@ add_library(bitcoin_common STATIC EXCLUDE_FROM_ALL
   script/signingprovider.cpp
   script/solver.cpp
 )
-target_link_libraries(bitcoin_common
+target_link_libraries(botcoin_common
   PRIVATE
     core_interface
-    bitcoin_consensus
-    bitcoin_util
+    botcoin_consensus
+    botcoin_util
     univalue
     secp256k1
     Boost::headers
@@ -165,9 +165,9 @@ if(ENABLE_WALLET)
     add_windows_application_manifest(botcoin-wallet)
     target_link_libraries(botcoin-wallet
       core_interface
-      bitcoin_wallet
-      bitcoin_common
-      bitcoin_util
+      botcoin_wallet
+      botcoin_common
+      botcoin_util
       Boost::headers
     )
     install_binary_component(botcoin-wallet HAS_MANPAGE)
@@ -175,8 +175,8 @@ if(ENABLE_WALLET)
 endif()
 
 
-# P2P and RPC server functionality used by `bitcoind` and `bitcoin-qt` executables.
-add_library(bitcoin_node STATIC EXCLUDE_FROM_ALL
+# P2P and RPC server functionality used by `botcoind` and `botcoin-qt` executables.
+add_library(botcoin_node STATIC EXCLUDE_FROM_ALL
   addrdb.cpp
   addrman.cpp
   banman.cpp
@@ -270,15 +270,15 @@ add_library(bitcoin_node STATIC EXCLUDE_FROM_ALL
   validation.cpp
   validationinterface.cpp
   versionbits.cpp
-  $<$<TARGET_EXISTS:bitcoin_wallet>:wallet/init.cpp>
-  $<$<NOT:$<TARGET_EXISTS:bitcoin_wallet>>:dummywallet.cpp>
+  $<$<TARGET_EXISTS:botcoin_wallet>:wallet/init.cpp>
+  $<$<NOT:$<TARGET_EXISTS:botcoin_wallet>>:dummywallet.cpp>
 )
-target_link_libraries(bitcoin_node
+target_link_libraries(botcoin_node
   PRIVATE
     core_interface
-    bitcoin_common
-    bitcoin_util
-    $<TARGET_NAME_IF_EXISTS:bitcoin_zmq>
+    botcoin_common
+    botcoin_util
+    $<TARGET_NAME_IF_EXISTS:botcoin_zmq>
     leveldb
     minisketch
     univalue
@@ -294,7 +294,7 @@ if(BUILD_BITCOIN_BIN)
   add_executable(botcoin bitcoin.cpp)
   add_windows_resources(botcoin bitcoin-res.rc)
   add_windows_application_manifest(botcoin)
-  target_link_libraries(botcoin core_interface bitcoin_common bitcoin_util)
+  target_link_libraries(botcoin core_interface botcoin_common botcoin_util)
   install_binary_component(botcoin HAS_MANPAGE)
 endif()
 
@@ -308,8 +308,8 @@ if(BUILD_DAEMON)
   add_windows_application_manifest(botcoind)
   target_link_libraries(botcoind
     core_interface
-    bitcoin_node
-    $<TARGET_NAME_IF_EXISTS:bitcoin_wallet>
+    botcoin_node
+    $<TARGET_NAME_IF_EXISTS:botcoin_wallet>
   )
   install_binary_component(botcoind HAS_MANPAGE)
 endif()
@@ -320,19 +320,19 @@ if(ENABLE_IPC AND BUILD_DAEMON)
   )
   target_link_libraries(botcoin-node
     core_interface
-    bitcoin_node
-    bitcoin_ipc
-    $<TARGET_NAME_IF_EXISTS:bitcoin_wallet>
+    botcoin_node
+    botcoin_ipc
+    $<TARGET_NAME_IF_EXISTS:botcoin_wallet>
   )
   install_binary_component(botcoin-node INTERNAL)
 endif()
 
 
-add_library(bitcoin_cli STATIC EXCLUDE_FROM_ALL
+add_library(botcoin_cli STATIC EXCLUDE_FROM_ALL
   compat/stdin.cpp
   rpc/client.cpp
 )
-target_link_libraries(bitcoin_cli
+target_link_libraries(botcoin_cli
   PUBLIC
     core_interface
     univalue
@@ -346,9 +346,9 @@ if(BUILD_CLI)
   add_windows_application_manifest(botcoin-cli)
   target_link_libraries(botcoin-cli
     core_interface
-    bitcoin_cli
-    bitcoin_common
-    bitcoin_util
+    botcoin_cli
+    botcoin_common
+    botcoin_util
     libevent::core
     libevent::extra
   )
@@ -362,8 +362,8 @@ if(BUILD_TX)
   add_windows_application_manifest(botcoin-tx)
   target_link_libraries(botcoin-tx
     core_interface
-    bitcoin_common
-    bitcoin_util
+    botcoin_common
+    botcoin_util
     univalue
   )
   install_binary_component(botcoin-tx HAS_MANPAGE)
@@ -376,8 +376,8 @@ if(BUILD_UTIL)
   add_windows_application_manifest(botcoin-util)
   target_link_libraries(botcoin-util
     core_interface
-    bitcoin_common
-    bitcoin_util
+    botcoin_common
+    botcoin_util
   )
   install_binary_component(botcoin-util HAS_MANPAGE)
 endif()
