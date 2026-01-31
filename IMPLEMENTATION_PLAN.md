@@ -567,7 +567,7 @@ def test_user_agent(self):
 ---
 
 ### 4.3 Data Directory and Config ✅
-- [x] Change `BITCOIN_CONF_FILENAME` to "botcoin.conf" in `src/common/args.cpp:37`
+- [x] Change `BITCOIN_CONF_FILENAME` to "botcoin.conf" in `src/common/args.cpp:37` (SIGNED OFF 2026-01-31)
 - [x] Change data directory from `.bitcoin` to `.botcoin` in `src/common/args.cpp:763`
 - [x] Change macOS path from "Bitcoin" to "Botcoin" in `src/common/args.cpp:760`
 - [x] Change Windows path from "Bitcoin" to "Botcoin" in `src/common/args.cpp:746`
