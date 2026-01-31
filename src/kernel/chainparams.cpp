@@ -108,7 +108,7 @@ public:
         consensus.MinBIP9WarningHeight = 0;
         // Botcoin: powLimit = 0x00000377ae... is the easiest safe target (won't overflow)
         // This matches genesis.nBits = 0x1f00ffff (calibrated for 60s blocks with 10 miners at ~1kH/s each's starting difficulty)
-        consensus.powLimit = uint256{"00002000000000000000000000000000000000000000000000000000000000000"};
+        consensus.powLimit = uint256{"0000200000000000000000000000000000000000000000000000000000000000"};
         consensus.nPowTargetTimespan = 60 * 60; // Botcoin: 1 hour window for faster difficulty adjustment
         consensus.nPowTargetSpacing = 60; // Botcoin: 60 second blocks
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -213,7 +213,7 @@ public:
         consensus.SegwitHeight = 0;
         consensus.MinBIP9WarningHeight = 0;
         // Botcoin: powLimit = 0x00000377ae... is the easiest safe target (won't overflow)
-        consensus.powLimit = uint256{"00002000000000000000000000000000000000000000000000000000000000000"};
+        consensus.powLimit = uint256{"0000200000000000000000000000000000000000000000000000000000000000"};
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60; // Botcoin: 60 second blocks
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -307,7 +307,7 @@ public:
         consensus.SegwitHeight = 0;
         consensus.MinBIP9WarningHeight = 0;
         // Botcoin: powLimit = 0x00000377ae... is the easiest safe target (won't overflow)
-        consensus.powLimit = uint256{"00002000000000000000000000000000000000000000000000000000000000000"};
+        consensus.powLimit = uint256{"0000200000000000000000000000000000000000000000000000000000000000"};
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60; // Botcoin: 60 second blocks
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -445,7 +445,7 @@ public:
         consensus.enforce_BIP94 = false;
         consensus.fPowNoRetargeting = false;
         consensus.MinBIP9WarningHeight = 0;
-        consensus.powLimit = uint256{"00002000000000000000000000000000000000000000000000000000000000000"};
+        consensus.powLimit = uint256{"0000200000000000000000000000000000000000000000000000000000000000"};
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = Consensus::BIP9Deployment::NEVER_ACTIVE;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
