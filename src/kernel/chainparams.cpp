@@ -107,8 +107,8 @@ public:
         consensus.SegwitHeight = 0; // Botcoin: Active from genesis
         consensus.MinBIP9WarningHeight = 0;
         // Botcoin: powLimit = 0x00000377ae... is the easiest safe target (won't overflow)
-        // This matches genesis nBits = 0x1e0377ae (~965x easier than Bitcoin's starting difficulty)
-        consensus.powLimit = uint256{"00000377ae000000000000000000000000000000000000000000000000000000"};
+        // This matches genesis.nBits = 0x1f00ffff (~100000x easier - for 60s blocks with 10 miners's starting difficulty)
+        consensus.powLimit = uint256{"0000ffff00000000000000000000000000000000000000000000000000000000"};
         consensus.nPowTargetTimespan = 60 * 60; // Botcoin: 1 hour window for faster difficulty adjustment
         consensus.nPowTargetSpacing = 60; // Botcoin: 60 second blocks
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -147,10 +147,10 @@ public:
 
         // Botcoin genesis block with Molty Manifesto message
         // nTime: 1738195200 = 2025-01-30 00:00:00 UTC (launch preparation)
-        // nBits: 0x1e0377ae = easiest safe difficulty (~965x easier than Bitcoin)
+        // nBits: 0x2000ffff = easiest safe difficulty (~100000x easier - for 60s blocks with 10 miners)
         // nVersion: 0x20000000 = BIP9 enabled from genesis
         // Note: nNonce will need to be mined for final launch; using placeholder
-        genesis = CreateBotcoinGenesisBlock(1738195200, 0, 0x1e0377ae, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 0, 0x2000ffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: These assertions will be updated once genesis is mined with RandomX
         // For now, we compute the hash dynamically and skip hard assertions
@@ -213,7 +213,7 @@ public:
         consensus.SegwitHeight = 0;
         consensus.MinBIP9WarningHeight = 0;
         // Botcoin: powLimit = 0x00000377ae... is the easiest safe target (won't overflow)
-        consensus.powLimit = uint256{"00000377ae000000000000000000000000000000000000000000000000000000"};
+        consensus.powLimit = uint256{"0000ffff00000000000000000000000000000000000000000000000000000000"};
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60; // Botcoin: 60 second blocks
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -248,7 +248,7 @@ public:
         m_assumed_chain_state_size = 19;
 
         // Botcoin testnet genesis - same message, different nonce
-        genesis = CreateBotcoinGenesisBlock(1738195200, 1, 0x1e0377ae, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 1, 0x2000ffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: Assertions updated after genesis mining
 
@@ -307,7 +307,7 @@ public:
         consensus.SegwitHeight = 0;
         consensus.MinBIP9WarningHeight = 0;
         // Botcoin: powLimit = 0x00000377ae... is the easiest safe target (won't overflow)
-        consensus.powLimit = uint256{"00000377ae000000000000000000000000000000000000000000000000000000"};
+        consensus.powLimit = uint256{"0000ffff00000000000000000000000000000000000000000000000000000000"};
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60; // Botcoin: 60 second blocks
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -343,7 +343,7 @@ public:
         m_assumed_chain_state_size = 2;
 
         // Botcoin testnet4 genesis - same Molty Manifesto message
-        genesis = CreateBotcoinGenesisBlock(1738195200, 2, 0x1e0377ae, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 2, 0x2000ffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: Assertions updated after genesis mining
 
@@ -445,7 +445,7 @@ public:
         consensus.enforce_BIP94 = false;
         consensus.fPowNoRetargeting = false;
         consensus.MinBIP9WarningHeight = 0;
-        consensus.powLimit = uint256{"00000377ae000000000000000000000000000000000000000000000000000000"};
+        consensus.powLimit = uint256{"0000ffff00000000000000000000000000000000000000000000000000000000"};
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = Consensus::BIP9Deployment::NEVER_ACTIVE;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
@@ -471,7 +471,7 @@ public:
         nPruneAfterHeight = 1000;
 
         // Botcoin signet genesis - same Molty Manifesto message
-        genesis = CreateBotcoinGenesisBlock(1738195200, 3, 0x1e0377ae, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 3, 0x2000ffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: Assertions updated after genesis mining
 
