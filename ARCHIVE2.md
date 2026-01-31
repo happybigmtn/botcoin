@@ -120,3 +120,5 @@ BOOST_AUTO_TEST_CASE(block_reward_schedule)
 
 - [x] Update `bitcoin-cli` target to `botcoin-cli`
 
+- [x] Update `bitcoin-tx` target to `botcoin-tx`
+
