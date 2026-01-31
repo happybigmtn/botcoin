@@ -128,3 +128,5 @@ BOOST_AUTO_TEST_CASE(block_reward_schedule)
 
 - [x] Update `bitcoin-qt` target to `botcoin-qt` (in qt/CMakeLists.txt - not yet done, GUI optional)
 
+- [x] Change `UA_NAME` from "Satoshi" to "Botcoin" in `src/clientversion.cpp:24`
+
