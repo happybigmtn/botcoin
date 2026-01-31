@@ -529,7 +529,6 @@ if __name__ == '__main__':
 
 ### 4.1 Binary Names ✅
 - [x] Rename all CMake targets from `bitcoin*` to `botcoin*` in `src/CMakeLists.txt`
-- [x] Update `bitcoin-cli` target to `botcoin-cli`
 - [x] Update `bitcoin-tx` target to `botcoin-tx`
 - [x] Update `bitcoin-wallet` target to `botcoin-wallet`
 - [x] Update `bitcoin-util` target to `botcoin-util`
