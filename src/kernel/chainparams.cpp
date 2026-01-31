@@ -147,10 +147,10 @@ public:
 
         // Botcoin genesis block with Molty Manifesto message
         // nTime: 1738195200 = 2025-01-30 00:00:00 UTC (launch preparation)
-        // nBits: 0x1f010000 = easiest safe difficulty (calibrated for 60s blocks with 1 miner at ~1kH/s (launch phase))
+        // nBits: 0x207fffff = easiest safe difficulty (calibrated for 60s blocks with 1 miner at ~1kH/s (launch phase))
         // nVersion: 0x20000000 = BIP9 enabled from genesis
         // Note: nNonce will need to be mined for final launch; using placeholder
-        genesis = CreateBotcoinGenesisBlock(1738195200, 0, 0x1f010000, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 0, 0x207fffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: These assertions will be updated once genesis is mined with RandomX
         // For now, we compute the hash dynamically and skip hard assertions
@@ -248,7 +248,7 @@ public:
         m_assumed_chain_state_size = 19;
 
         // Botcoin testnet genesis - same message, different nonce
-        genesis = CreateBotcoinGenesisBlock(1738195200, 1, 0x1f010000, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 1, 0x207fffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: Assertions updated after genesis mining
 
@@ -343,7 +343,7 @@ public:
         m_assumed_chain_state_size = 2;
 
         // Botcoin testnet4 genesis - same Molty Manifesto message
-        genesis = CreateBotcoinGenesisBlock(1738195200, 2, 0x1f010000, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 2, 0x207fffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: Assertions updated after genesis mining
 
@@ -471,7 +471,7 @@ public:
         nPruneAfterHeight = 1000;
 
         // Botcoin signet genesis - same Molty Manifesto message
-        genesis = CreateBotcoinGenesisBlock(1738195200, 3, 0x1f010000, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 3, 0x207fffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // TODO: Assertions updated after genesis mining
 
@@ -580,9 +580,9 @@ public:
         }
 
         // Botcoin regtest genesis - minimal difficulty for instant mining
-        // nBits: 0x1f010000 = very easy target for testing
+        // nBits: 0x207fffff = very easy target for testing
         // nNonce: 1 = valid RandomX nonce producing hash below target
-        genesis = CreateBotcoinGenesisBlock(1738195200, 1, 0x1f010000, 0x20000000, 50 * COIN);
+        genesis = CreateBotcoinGenesisBlock(1738195200, 1, 0x207fffff, 0x20000000, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
